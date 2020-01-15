@@ -26,7 +26,7 @@ public class combinationSum {
             res.add(new ArrayList<>(tmp));
             return;
         }else{
-            for(int i = start; i < candidates.length;i++){
+            for(int i = start; i < candidates.length; i++){
                 if (i < 0) break;
                 tmp.add(candidates[i]);
                 backtrack(candidates, target - candidates[i], i, res, tmp);

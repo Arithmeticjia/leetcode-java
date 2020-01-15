@@ -8,8 +8,10 @@ public class subsets {
 
     public static void main(String[] args){
         subsets test = new subsets();
+        subsets newtest = new subsets();
         int[] t = {1,2,3,4};
         System.out.println(test.subsets(t));
+        System.out.println(newtest.subset(t));
     }
 
     public List<List<Integer>> subsets(int[] nums){
@@ -32,6 +34,21 @@ public class subsets {
             tmp.remove(tmp.size()-1);
         }
     }
+
+    public List<List<Integer>> subset(int[] nums){
+        List<List<Integer>> ans = new ArrayList<>();
+        ans.add(new ArrayList<>());
+        for(int n:nums) {
+            int size = ans.size();
+            for (int i = 0; i < size; i++) {
+                List<Integer> subset = new ArrayList<>(ans.get(i));
+                subset.add(n);
+                ans.add(subset);
+            }
+        }
+        return ans;
+    }
+
 //    public List<List<Integer>> subsets(int[] nums) {
 //        List<List<Integer>> result = new ArrayList<>();
 //        Arrays.sort(nums);

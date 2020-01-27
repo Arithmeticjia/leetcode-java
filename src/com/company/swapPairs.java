@@ -11,8 +11,8 @@ public class swapPairs {
         ListNode l3 = new ListNode(3);
         ListNode l4 = new ListNode(4);
         l1.next = l2;
-        l2.next = l3;
-        l3.next = l4;
+//        l2.next = l3;
+//        l3.next = l4;
         ListNode ans = test.swapPairs(l1);
         test.print_result(ans);
     }
@@ -35,7 +35,6 @@ public class swapPairs {
         }
 
         ListNode secondNode = head.next;
-
         head.next = swapPairs(secondNode.next);
         secondNode.next = head;
 

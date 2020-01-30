@@ -6,7 +6,7 @@ public class multiply {
 
     public static void main(String[] args){
         multiply test = new multiply();
-        System.out.println(test.multiply("123","456"));
+        System.out.println(test.multiply("456","123"));
     }
 
     /*
@@ -29,6 +29,7 @@ public class multiply {
             int n1Val = num1.charAt(i) - '0';
             int carry = 0;
             // cur存放第一行每一个数和第二行的每一个数的乘积的值，包括进位
+            // StringBuilder存储字符串
             StringBuilder cur = new StringBuilder();
             for(int j = num2.length() - 1; j >= 0; j --) {
                 int n2Val = num2.charAt(j) - '0';
@@ -40,12 +41,11 @@ public class multiply {
             }
 
             cur.append(carry != 0 ? carry : "");
+            // 837 516 294
             results[i] = cur.reverse().append(generateZero(num1.length() - i - 1)).toString();
+            // 738 6150 49200
         }
 
-        // 这一部分融合操作可以优化成 分治 算法，效率更高。
-        // 类似于合并 k 个有序链表。
-        // 这里简单起见，我并没有优化，感兴趣的同学可以做一下优化。
         String res = results[0];
         for(int i = 1; i < results.length; i ++) {
             res = addStrings(res, results[i]);
@@ -53,7 +53,7 @@ public class multiply {
 
         return res;
 }
-
+    // 补0
     private String generateZero(int n) {
         char[] zeros = new char[n];
         Arrays.fill(zeros, '0');

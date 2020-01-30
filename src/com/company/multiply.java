@@ -17,7 +17,6 @@ public class multiply {
      *  result
      */
 
-
     public String multiply(String num1, String num2) {
         if(num1 == null || num1.length() == 0)
             return "0";
@@ -26,7 +25,11 @@ public class multiply {
 
         String[] results = new String[num1.length()];
         for(int i = num1.length() - 1; i >= 0; i --) {
+            // 0->48;9->57
+            // char ''
+            // String ""
             int n1Val = num1.charAt(i) - '0';
+            System.out.println(n1Val);
             int carry = 0;
             // cur存放第一行每一个数和第二行的每一个数的乘积的值，包括进位
             // StringBuilder存储字符串
@@ -41,6 +44,7 @@ public class multiply {
             }
 
             cur.append(carry != 0 ? carry : "");
+            System.out.println(cur);
             // 837 516 294
             results[i] = cur.reverse().append(generateZero(num1.length() - i - 1)).toString();
             // 738 6150 49200

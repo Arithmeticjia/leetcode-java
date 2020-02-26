@@ -12,22 +12,22 @@ public class allPathsSourceTarget {
     }
 
     public List<List<Integer>> allPathsSourceTarget(int [][] graph){
-        List<List<Integer>> r = new ArrayList<>();
-        List<Integer> c = new ArrayList<>();
-        c.add(0);
-        dfs(c, r, graph, 0);
-        return r;
+        List<List<Integer>> allpath = new ArrayList<>();
+        List<Integer> path = new ArrayList<>();
+        path.add(0);
+        dfs(path, allpath, graph, 0);
+        return allpath;
     }
-
-    public void dfs(List<Integer> c, List<List<Integer>> r, int [][] g, int n) {
+    // n是当前节点
+    public void dfs(List<Integer> path, List<List<Integer>> allpath, int [][] g, int n) {
         if (n == g.length - 1) {
-            r.add(new ArrayList<>(c));
+            allpath.add(new ArrayList<>(path));
         }
         int[] nbs = g[n];
         for(int nb : nbs) {
-            c.add(nb);
-            dfs(c, r, g, nb);
-            c.remove(c.size() - 1);
+            path.add(nb);
+            dfs(path, allpath, g, nb);
+            path.remove(path.size() - 1);
         }
     }
 }

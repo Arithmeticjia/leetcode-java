@@ -21,12 +21,12 @@ public class allPathsSourceTarget {
     // n是当前节点
     public void dfs(List<Integer> path, List<List<Integer>> allpath, int [][] g, int n) {
         if (n == g.length - 1) {
+            System.out.println(path);
             allpath.add(new ArrayList<>(path));
         }
-        int[] nbs = g[n];
-        for(int nb : nbs) {
-            path.add(nb);
-            dfs(path, allpath, g, nb);
+        for(int i : g[n]) {
+            path.add(i);
+            dfs(path, allpath, g, i);
             path.remove(path.size() - 1);
         }
     }

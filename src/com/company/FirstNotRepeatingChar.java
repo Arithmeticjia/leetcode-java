@@ -5,8 +5,9 @@ import java.util.HashMap;
 public class FirstNotRepeatingChar {
     public int FirstNotRepeatingChar(String str) {
 
-        if(Integer.valueOf(str.length()).equals(0))
+        if(Integer.valueOf(str.length()).equals(0)) {
             return -1;
+        }
         HashMap<Character,Integer> map = new HashMap<>();
         for(int i=0;i<str.length();i++){
             if(!map.containsKey(str.charAt(i))){

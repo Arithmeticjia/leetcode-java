@@ -21,13 +21,16 @@ public class combinationSum {
     }
 
     public void backtrack(int[] candidates,int target,int start,List<List<Integer>> res,List<Integer> tmp){
-        if(target < 0) return;
-        else if(target == 0){
+        if(target < 0) {
+            return;
+        } else if(target == 0){
             res.add(new ArrayList<>(tmp));
             return;
         }else{
             for(int i = start; i < candidates.length; i++){
-                if (i < 0) break;
+                if (i < 0) {
+                    break;
+                }
                 tmp.add(candidates[i]);
                 backtrack(candidates, target - candidates[i], i, res, tmp);
                 tmp.remove(tmp.size() - 1);

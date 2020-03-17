@@ -16,8 +16,9 @@ public class mergeTwoLists {
         while (l != null){
             System.out.print(l.val);
             l = l.next;
-            if (l != null)
+            if (l != null) {
                 System.out.print("->");
+            }
         }
     }
 

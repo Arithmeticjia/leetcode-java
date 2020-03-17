@@ -15,12 +15,13 @@ public class maxProfit {
         int maxprofit = 0;
         int buy= prices[0];
         for(int i = 0; i < prices.length;i++){
-            if (prices[i] < buy)
+            if (prices[i] < buy) {
                 buy = prices[i];
-            else {
+            } else {
                 int profit = prices[i] - buy;
-                if(profit > maxprofit)
+                if(profit > maxprofit) {
                     maxprofit = profit;
+                }
             }
         }
         return maxprofit;

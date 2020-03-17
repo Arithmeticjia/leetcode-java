@@ -13,11 +13,13 @@ public class change {
         char[] numbers = number.toCharArray();
         while(left < right){
             //从左边找到第一个偶数
-            while(left<right&&numbers[left]%2!=0)
+            while(left<right&&numbers[left]%2!=0) {
                 left++;
+            }
             //从右边找到第一个偶数
-            while(left<right&&numbers[right]%2!=0)
+            while(left<right&&numbers[right]%2!=0) {
                 right--;
+            }
             char temp = numbers[left];
             numbers[left] = numbers[right];
             numbers[right] = temp;

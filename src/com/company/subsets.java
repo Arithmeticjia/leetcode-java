@@ -23,8 +23,9 @@ public class subsets {
     }
 
     public void backtrack(int[] nums, int start, List<List<Integer>> res, List<Integer> tmp){
-        if(start > nums.length)
+        if(start > nums.length) {
             return;
+        }
         if(!res.contains(tmp)){
             res.add(new ArrayList<>(tmp));
         }

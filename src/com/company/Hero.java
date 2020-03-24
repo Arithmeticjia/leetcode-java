@@ -17,6 +17,7 @@ public class Hero {
         this.num = num;
     }
 
+    @Override
     public String toString() {
         return name;
     }

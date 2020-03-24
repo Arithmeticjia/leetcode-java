@@ -18,8 +18,9 @@ public class fromnpickk {
     }
 
     public void backtrack(int n,int k, int start, List<List<Integer>> result ,List<Integer> list){
-        if (k < 0) return;
-        else if (k == 0){
+        if (k < 0) {
+            return;
+        } else if (k == 0){
             result.add(new ArrayList<>(list));
         }else {
             for (int i = start;i <= n; i++){

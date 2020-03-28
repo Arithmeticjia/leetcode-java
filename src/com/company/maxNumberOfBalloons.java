@@ -15,7 +15,9 @@ public class maxNumberOfBalloons {
         b = a = l = o = n = 0;
         for(int i = 0; i < text.length(); i++){
             char c = text.charAt(i);
-            if(c == 'b') b++;
+            if(c == 'b') {
+                b++;
+            }
             if(c == 'a') a++;
             if(c == 'l') l++;
             if(c == 'o') o++;

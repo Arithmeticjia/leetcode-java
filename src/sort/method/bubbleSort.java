@@ -2,6 +2,12 @@ package sort.method;
 
 import java.util.Arrays;
 
+/**
+ * 最佳情况：T(n) = O(n)
+ * 最差情况：T(n) = O(n2)
+ * 平均情况：T(n) = O(n2)
+ */
+
 public class bubbleSort {
 
     public static void main(String[] args){

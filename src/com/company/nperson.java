@@ -42,7 +42,7 @@ public class nperson {
             }
         }
         for (int i = 0; i < n; i++) {
-            if (arr[i] == true) {
+            if (arr[i]) {
                 System.out.println("原来排在第" + (i + 1) + "位的人留下了。");
             }
         }

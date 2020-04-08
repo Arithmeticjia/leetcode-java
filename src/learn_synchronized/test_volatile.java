@@ -5,7 +5,9 @@ import java.util.concurrent.Executors;
 
 public class test_volatile {
 
-    // 可见性
+    /**
+        可见性
+     */
     public volatile int inc = 0;
 
     public synchronized void increase() {

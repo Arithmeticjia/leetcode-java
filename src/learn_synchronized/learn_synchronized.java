@@ -1,7 +1,5 @@
 package learn_synchronized;
 
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
-import serializable.TransientTest;
 
 public class learn_synchronized {
 

@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author ArithmeticJia
  * 当队列里的任务数达到上限，并且池中正在运行的线程数小于maximumPoolSize，对于新加入的任务，新建线程。
+ * 当任务4进入队列时发现队列的长度已经到了上限，所以无法进入队列排队，而此时正在运行的线程数（2）小于maximumPoolSize所以新建线程执行该任务。
  */
 public class ThirdThreadPool {
 
@@ -53,6 +54,7 @@ public class ThirdThreadPool {
                 System.out.println("-------------helloworld_003---------------" + Thread.currentThread().getName());
             }
         });
+
         // 任务4
         threadPoolExecutor.execute(new Runnable() {
             @Override

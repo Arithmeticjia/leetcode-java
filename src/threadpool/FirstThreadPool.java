@@ -5,7 +5,8 @@ import java.util.concurrent.*;
 
 /**
  * @author ArithmeticJia
- * 当池中正在运行的线程数（包括空闲线程）小于corePoolSize时，新建线程执行任务
+ * 当池中正在运行的线程数（包括空闲线程）小于corePoolSize时，新建线程执行任务。
+ * 当执行任务1的线程（thread-1）执行完成之后，任务2并没有去复用thread-1而是新建线程（thread-2）去执行任务。
  */
 public class FirstThreadPool {
 

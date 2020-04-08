@@ -7,10 +7,10 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author ArithmeticJia
- * 当池中正在运行的线程数大于等于corePoolSize时，新插入的任务进入workQueue排队（如果workQueue长度允许），等待空闲线程来执行
- * 任务3会等待任务1执行完之后，有了空闲线程，才会执行。并没有新建线程执行任务3，这时maximumPoolSize=3这个参数不起作用。
+ * 当队列里的任务数达到上限，并且池中正在运行的线程数等于maximumPoolSize，对于新加入的任务，执行拒绝策略（线程池默认的拒绝策略是抛异常）。
+ * 当任务5加入时，队列达到上限，池内运行的线程数达到最大，故执行默认的拒绝策略，抛异常。
  */
-public class SecondThreadPool {
+public class FourthThreadPool {
 
     public static void main(String[] args){
         ThreadFactory namedThreadFactory = new ThreadFactory() {
@@ -19,8 +19,8 @@ public class SecondThreadPool {
                 return null;
             }
         };
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2,10,5, TimeUnit.SECONDS,
-                new LinkedBlockingQueue<Runnable>(Integer.MAX_VALUE));
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2,3,5, TimeUnit.SECONDS,
+                new LinkedBlockingQueue<Runnable>(1));
         // 任务1
         threadPoolExecutor.execute(new Runnable() {
             @Override
@@ -39,7 +39,7 @@ public class SecondThreadPool {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(5 * 1000);
+                    Thread.sleep( 5 * 1000);
                     System.out.println("-------------helloworld_002---------------" + Thread.currentThread().getName());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -52,6 +52,28 @@ public class SecondThreadPool {
             @Override
             public void run() {
                 System.out.println("-------------helloworld_003---------------" + Thread.currentThread().getName());
+            }
+        });
+
+        // 任务4
+        threadPoolExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(2 * 1000);
+                    System.out.println("-------------helloworld_004---------------" + Thread.currentThread().getName());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        // 任务5
+        threadPoolExecutor.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                System.out.println("-------------helloworld_005---------------" + Thread.currentThread().getName());
             }
         });
         // shutdown就是不再接受新的任务，然后等待线程池全部执行完毕

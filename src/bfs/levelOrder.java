@@ -20,7 +20,7 @@ public class levelOrder {
         int level = 0;
 
         while(!queue.isEmpty()){
-
+            // 为树的每一层添加一个空数组
             ans.add(new ArrayList<>());
             int levelLength = queue.size();
             // 遍历每一层

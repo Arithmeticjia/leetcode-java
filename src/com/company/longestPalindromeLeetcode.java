@@ -31,4 +31,26 @@ public class longestPalindromeLeetcode {
         }
         return true;
     }
+
+    public static String longestPalindromeDp(String s){
+        int length = s.length();
+        int max = 0;
+        String ans = "";
+        boolean[][] p = new boolean[length][length];
+        for(int len = 1;len <= length;len++){
+            for(int start = 0;start < length;start++){
+                int end = start + len - 1;
+                if (end >= length)
+                {
+                    break;
+                }
+                p[start][end] = (len == 1 || len == 2 || p[start+1][end-1]) && s.charAt(start) == s.charAt(end);
+                if(p[start][end] && len > max){
+                    ans = s.substring(start,end+1);
+                    max = len;
+                }
+            }
+        }
+        return ans;
+    }
 }

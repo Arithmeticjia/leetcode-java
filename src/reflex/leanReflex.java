@@ -13,16 +13,23 @@ public class leanReflex {
     }
 
     public static void test(Object object) throws NoSuchFieldException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
+        // 获得类
         Class c = object.getClass();
         Field ageField = c.getDeclaredField("age");
         System.out.println(ageField.getInt(object));
         Method method = c.getDeclaredMethod("sayHello");
         method.invoke(object);
+        // 运行时是否有注解
+        System.out.print(c.isAnnotationPresent(learnAnno.class)+"\n");
+
+        System.out.print(ageField.getDeclaredAnnotation(learnAnno.class).name());
     }
 }
 
+@learnAnno
 class Person{
 
+    @learnAnno
     int age;
     void sayHello(){
         System.out.println("hello");

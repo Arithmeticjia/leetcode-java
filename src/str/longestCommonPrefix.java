@@ -1,8 +1,14 @@
 package str;
 
+import java.util.concurrent.ConcurrentHashMap;
+
 public class longestCommonPrefix {
 
+    ConcurrentHashMap<Integer,Integer> map = new ConcurrentHashMap<>();
     public String longestCommonPrefix(String[] strs){
+        if(strs.length == 0){
+            return "";
+        }
         String ans = strs[0];
         for(int i = 0;i < strs.length;i++){
             // indexOf

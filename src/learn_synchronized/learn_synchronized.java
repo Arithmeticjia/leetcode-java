@@ -16,10 +16,18 @@ public class learn_synchronized {
 
         Thread.sleep(2000);
 
-        new Thread(() -> {
-            flag = false;
-            System.out.println("线程修改了变量的值为false");
-        }
-        ).start();
+        Thread t = new Thread(){
+            @Override
+            public void run(){
+                flag = false;
+                System.out.println("线程修改了变量的值为false");
+            }
+        };
+        t.start();
+//        new Thread(() -> {
+//            flag = false;
+//            System.out.println("线程修改了变量的值为false");
+//        }
+//        ).start();
     }
 }

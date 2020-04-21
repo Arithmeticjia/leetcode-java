@@ -18,11 +18,11 @@ public class findMinArrowShots {
         Arrays.sort(points, new Comparator<int[]>() {
             @Override
             public int compare(int[] o1, int[] o2) {
-                // 当返回值大于0交换
+                // 当返回值大于0交换，此次为升序
                 return o1[1] - o2[1];
             }
         });
-
+//        System.out.println(Arrays.deepToString(points));
         // 箭
         int arrows = 1;
 

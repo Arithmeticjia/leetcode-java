@@ -3,7 +3,7 @@ package reflex;
 public class reflex {
 
 
-
+    String hhh = "ff";
     public static void main(String[] args) throws ClassNotFoundException {
         Class cls1 = String.class;
 

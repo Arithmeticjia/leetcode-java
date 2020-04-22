@@ -6,7 +6,7 @@ public class quickSortMy {
 
     public static void quickSort(int[] arr, int left, int right) {
         if (left < right) {
-            //找出基准
+            //找出基准本来的位置
             int partition = partition(arr, left, right);
             //分成两边递归进行
             quickSort(arr, 0, partition - 1);
@@ -48,7 +48,6 @@ public class quickSortMy {
     public static void main(String[] args) {
         int[] a = {2, 4, 6, 1, 3, 7, 9, 8, 5};
         quickSort(a, 0, a.length - 1);
-        Arrays.sort(a);
         System.out.println(Arrays.toString(a));
     }
 }

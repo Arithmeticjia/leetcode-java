@@ -2,7 +2,9 @@ package com.company;
 
 public class coinChange {
     public int coinChange(int[] coins, int amount) {
-        if (amount < 1) return 0;
+        if (amount < 1) {
+            return 0;
+        }
         return coinChange(coins, amount, new int[amount]);
     }
 
@@ -12,7 +14,7 @@ public class coinChange {
             return -1;
         }
         // 成功
-        if(rem == 0){
+        if(rem == 0) {
             return 0;
         }
         //如果备忘录有值

@@ -9,6 +9,7 @@ public class Demo01 {
         System.out.println(String.class);
         String path = "reflex.User";
         Class clazz = Class.forName(path);
+        Class clayy = String.class;
         System.out.println(clazz.getDeclaredField("age"));
         System.out.println(clazz.getSimpleName());
         // 只能是public

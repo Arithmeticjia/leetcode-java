@@ -8,6 +8,7 @@ public class qiniu22 {
         int time = scanner.nextInt();
         for(int t = 0;t < time;t++){
             String buffer = scanner.next();
+            Class b = buffer.getClass();
             int i,len,j;
             len = buffer.length();
             char[] str = buffer.toCharArray();

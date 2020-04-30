@@ -11,6 +11,7 @@ public class isHappy {
     public boolean isHappy(int n) {
 
         String s = String.valueOf(n);
+        // String s = Integer.toString(n);
         while (true) {
             int sum = 0;
             for(int i = 0;i < s.length(); i++){

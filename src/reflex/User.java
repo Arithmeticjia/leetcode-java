@@ -11,12 +11,20 @@ public class User {
         this.age = age;
     }
 
+    public User(){
+
+    }
+
     public int getId(){
         return id;
     }
 
     public void setId(int id){
         this.id = id;
+    }
+
+    public void setId(){
+        this.id = 1;
     }
 
     public int getAge(){

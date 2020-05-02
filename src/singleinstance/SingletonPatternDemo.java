@@ -8,9 +8,11 @@ public class SingletonPatternDemo {
         //SingleObject object = new SingleObject();
 
         //获取唯一可用的对象
-        SingleObject object = SingleObject.getInstance();
+        SingleObject object1 = SingleObject.getInstance();
+        SingleObjectLasy object2 = SingleObjectLasy.getInstance();
 
         //显示消息
-        object.showMessage();
+        object1.showMessage();
+        object2.showMessage();
     }
 }

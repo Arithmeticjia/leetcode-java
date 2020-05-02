@@ -1,24 +1,27 @@
 package singleinstance;
 
-public class SingleObject {
+public class SingleObjectLasy {
 
     //创建 SingleObject 的一个对象
     //饿汉模式
-    private static SingleObject instance = new SingleObject();
+    private static SingleObjectLasy instance;
 
     /**
      * 让构造函数为 private，这样该类就不会被实例化
      */
-    private SingleObject(){
+    private SingleObjectLasy(){
 
     }
 
     /**
      * 获取唯一可用的对象
-     * 返回值是一个实例对象
+     * 返回值是一个实例对象 
      * @return
      */
-    public static SingleObject getInstance(){
+    public static SingleObjectLasy getInstance(){
+        if(instance == null){
+            instance = new SingleObjectLasy();
+        }
         return instance;
     }
 

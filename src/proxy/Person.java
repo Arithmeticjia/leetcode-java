@@ -11,4 +11,5 @@ public interface Person {
      */
     // 接口默认都是抽象方法public + abstract
     public abstract void giveMoney();
+    // 常量public static final
 }

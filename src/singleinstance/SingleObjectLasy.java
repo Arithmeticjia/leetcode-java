@@ -3,7 +3,7 @@ package singleinstance;
 public class SingleObjectLasy {
 
     //创建 SingleObject 的一个对象
-    //饿汉模式
+    //懒汉模式
     private static SingleObjectLasy instance;
 
     /**
@@ -18,7 +18,7 @@ public class SingleObjectLasy {
      * 返回值是一个实例对象 
      * @return
      */
-    public static SingleObjectLasy getInstance(){
+    public static synchronized SingleObjectLasy getInstance(){
         if(instance == null){
             instance = new SingleObjectLasy();
         }

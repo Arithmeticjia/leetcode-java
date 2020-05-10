@@ -24,13 +24,18 @@ public class bubbleSort {
             boolean flag = false;
             for(int j = 0;j < nums.length-i-1;j++){
                 if(nums[j] > nums[j+1]){
+                    // 前面一个大于后面一个
+                    // 交换
                     temp=nums[j];
                     nums[j]=nums[j+1];
                     nums[j+1]=temp;
+                    // 表示交换过了
                     flag = true;
                 }
             }
             // 此时如果没有交换，那么flag==false，取反就是true
+            // 此时没有交换，表示已经有序
+            // 直接退出循环
             if(!flag){
                 break;
             }

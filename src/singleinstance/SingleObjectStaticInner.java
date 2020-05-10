@@ -2,6 +2,8 @@ package singleinstance;
 
 /**
  * 静态内部类方式
+ * 线程安全
+ * 类加载是线程安全的
  */
 public class SingleObjectStaticInner {
 

@@ -7,8 +7,8 @@ package dfs;
  * dfs
  */
 public class deepestLeavesSum {
-    int sum=0;
-    int deepest=0;
+    int sum = 0;
+    int deepest = 0;
     public int deepestLeavesSum(TreeNode root) {
         dfs(root,0);
         return sum;
@@ -19,6 +19,7 @@ public class deepestLeavesSum {
             return;
         }
         if(node.left == null || node.right == null){
+            //找到新的更深层的叶子节点了
             if(level > deepest){
                 sum = node.val;
                 deepest = level;
@@ -28,7 +29,7 @@ public class deepestLeavesSum {
 
             }
         }
-        dfs(node.left,level+1);
-        dfs(node.right,level+1);
+        dfs(node.left,level + 1);
+        dfs(node.right,level + 1);
     }
 }

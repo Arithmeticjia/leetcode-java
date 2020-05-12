@@ -1,5 +1,8 @@
 package dfs;
 
+/**
+ * 二叉树的直径
+ */
 public class diameterOfBinaryTree {
     int ans;
     public int diameterOfBinaryTree(TreeNode root){

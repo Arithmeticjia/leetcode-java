@@ -1,5 +1,8 @@
 package str;
 
+/**
+ * 10进制转7进制
+ */
 public class convertToBase7 {
 
     public static void main(String[] args) {

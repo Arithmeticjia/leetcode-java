@@ -23,17 +23,22 @@ public class numberOfArithmeticSlices {
             int d = A[s + 1] - A[s];
             // 从第三个数开始
             for (int e = s + 2; e < A.length; e++) {
-                int i = 0;
-                // e是等差数列的最后一个数
-                for (i = s + 1; i <= e; i++) {
-                    // 遍历第一个和最后一个数之间所有的差
-                    if (A[i] - A[i - 1] != d) {
-                        break;
-                    }
-                }
-                // 没有break的话 最后一次i++一定大于e
-                if (i > e) {
+//                int i = 0;
+//                // e是等差数列的最后一个数
+//                for (i = s + 1; i <= e; i++) {
+//                    // 遍历第一个和最后一个数之间所有的差
+//                    if (A[i] - A[i - 1] != d) {
+//                        break;
+//                    }
+//                }
+//                // 没有break的话 最后一次i++一定大于e
+//                if (i > e) {
+//                    count++;
+//                }
+                if(A[e] - A[e-1] == d){
                     count++;
+                }else{
+                    break;
                 }
             }
         }

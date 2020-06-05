@@ -10,7 +10,15 @@ public class Demo02 {
     public static void main(String[] args) throws ClassNotFoundException, NoSuchFieldException, NoSuchMethodException {
         String path = "reflex.User";
 
+        Class stringClass = String.class;
+        Class stringClass2 = path.getClass();
+
         Class clazz = Class.forName(path);
+        Class clazz2 = Class.forName(path);
+
+        System.out.println(clazz.hashCode());
+        System.out.println(clazz2.hashCode());
+
         // 获得包名+类名
         System.out.println(clazz.getName());
         // 获得类名

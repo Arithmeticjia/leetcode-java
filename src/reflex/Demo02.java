@@ -12,12 +12,24 @@ public class Demo02 {
 
         Class stringClass = String.class;
         Class stringClass2 = path.getClass();
+        System.out.println(stringClass == stringClass2);
+
+        Class intClass = int.class;
 
         Class clazz = Class.forName(path);
         Class clazz2 = Class.forName(path);
 
+        // 一个类只有一个Class对象，hashCode相同
         System.out.println(clazz.hashCode());
         System.out.println(clazz2.hashCode());
+
+        // 这里和数组的维度有关
+        int[] arr01 = new int[10];
+        int[] arr02 = new int[20];
+
+        // 这里的hashCode是相同的
+        System.out.println(arr01.getClass().hashCode());
+        System.out.println(arr02.getClass().hashCode());
 
         // 获得包名+类名
         System.out.println(clazz.getName());

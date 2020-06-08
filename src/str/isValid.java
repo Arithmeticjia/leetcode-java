@@ -1,6 +1,7 @@
 package str;
 
 import java.util.Deque;
+import java.util.Queue;
 import java.util.LinkedList;
 
 /**
@@ -35,7 +36,7 @@ public class isValid {
                 stack.push(S.charAt(i));
             }else {
                 // 如果||左边为true，右边不再执行
-                // Queue(队列)的一个方法，获取并移除此队列的头，如果此队列为空，则返回null
+                // poll()是Queue(队列)的一个方法，获取并移除此队列的头，如果此队列为空，则返回null
                 if(stack.peek()==null || stack.poll()!='b') {
                     return false;
                 }

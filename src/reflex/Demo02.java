@@ -46,6 +46,12 @@ public class Demo02 {
         System.out.println(name);
 
         // 必须传参数类型对应的Class对象
+        Method[] methods = clazz.getDeclaredMethods();
+
+        for(Method m:methods){
+            System.out.println("方法:" + m);
+        }
+
         Method md01 = clazz.getDeclaredMethod("setId",int.class);
 
         Method md02 = clazz.getDeclaredMethod("setId", null);

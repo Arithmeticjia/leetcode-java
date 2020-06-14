@@ -2,12 +2,13 @@ package reflex;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 
 public class Demo02 {
 
-    public static void main(String[] args) throws ClassNotFoundException, NoSuchFieldException, NoSuchMethodException {
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchFieldException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         String path = "reflex.User";
 
         Class stringClass = String.class;
@@ -66,6 +67,16 @@ public class Demo02 {
         // 获得有参构造器
         Constructor cc = clazz.getDeclaredConstructor(int.class,String.class);
         System.out.println(cc);
+
+        Class<User> userClass = (Class<User>) Class.forName(path);
+
+        User u = userClass.newInstance();
+
+        Constructor<User> userConstructor = userClass.getDeclaredConstructor(int.class, String.class);
+
+        User uu = userConstructor.newInstance(18,"jake");
+        System.out.println(uu.getName());
+        System.out.println(uu.getAge());
 
         for(Constructor cons: constructors){
             System.out.println(cons);

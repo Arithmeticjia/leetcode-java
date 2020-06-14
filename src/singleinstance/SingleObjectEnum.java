@@ -6,5 +6,4 @@ public enum SingleObjectEnum {
      * 没有懒加载
      */
     INSTANCE;
-
 }

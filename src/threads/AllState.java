@@ -16,7 +16,6 @@ public class AllState extends Thread{
             }
             System.out.println(getName() + " " + i);
         }
-
     }
 
     public static void main(String[] args) {

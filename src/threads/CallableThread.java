@@ -9,15 +9,15 @@ public class CallableThread implements Callable {
 
     public static void main(String[] args) {
         CallableThread ct = new CallableThread();
-        FutureTask<Integer> ft = new FutureTask<>(ct);
+        FutureTask<Integer> future = new FutureTask<>(ct);
         for (int i = 0; i < 100; i++) {
             System.out.println(Thread.currentThread().getName() + " 的循环变量i的值" + i);
             if (i == 20) {
-                new Thread(ft, "有返回值的线程").start();
+                new Thread(future, "有返回值的线程").start();
             }
         }
         try {
-            System.out.println("子线程的返回值：" + ft.get());
+            System.out.println("子线程的返回值：" + future.get());
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {

@@ -27,12 +27,15 @@ public class AllState extends Thread{
         System.out.println(state);
 
         t.start();
-
+        //观察状态
         state = t.getState();
         // RUNNABLE
         System.out.println(state);
 
         while(state != State.TERMINATED){
+            // 活动的线程数
+            int num = Thread.activeCount();
+            System.out.println(num);
             try {
                 // sleep() 使当前线程进入阻塞状态，在指定时间不会执行
                 AllState.sleep(200);

@@ -20,7 +20,7 @@ public class BlockJoin extends Thread{
         t.start();
         for(int i = 0;i < 100;i++){
             if(i == 20){
-                t.join();//插队 main被阻塞了
+                t.join();//插队，main被阻塞了，只有t线程执行完了，才能开始执行main线程
             }
             System.out.println("main..." + i);
         }

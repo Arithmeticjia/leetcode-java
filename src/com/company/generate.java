@@ -30,7 +30,7 @@ public class generate {
             row.add(1);
 
             for(int j = 1; j < rowNum;j++){
-                row.add(prevRow.get(j-1) + prevRow.get(j+1));
+                row.add(prevRow.get(j-1) + prevRow.get(j));
             }
 
             row.add(1);

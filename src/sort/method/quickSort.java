@@ -1,7 +1,13 @@
 package sort.method;
 
 
-
+/**
+ *  分治法
+ *  首先设定一个分界值，通过该分界值把数组分为左右两个部分；
+ *  将大于等于分界值的元素放到分界值的右边，将小于分界值的元素放到分界值的左边；
+ *  然后对左右两边的数据进行独立的排序，在左边数据中取一个分界值，把小于分界值的元素放到分界值的左边，大于等于分界值的元素，放到数组的右边；右边的数据也执行同样的操作；
+ *  重复上述操作，当左右各数据排序完成后，整个数组也就完成了排序。
+ */
 public class quickSort {
     public static void main(String[] args) {
         int[] arr = { 49, 38, 65, 97, 23, 22, 76, 1, 5, 8, 2, 0, -1, 22 };
@@ -26,7 +32,7 @@ public class quickSort {
     }
 
     private static int getIndex(int[] arr, int low, int high) {
-        // 基准数据
+        // 基准数据是第一个
         int tmp = arr[low];
         while (low < high) {
             // 当队尾的元素大于等于基准数据时,向前挪动high指针

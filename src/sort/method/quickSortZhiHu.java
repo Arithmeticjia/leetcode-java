@@ -37,7 +37,7 @@ public class quickSortZhiHu {
                 swap(arr, left, right);
             }
         }
-        //第一轮完成，让left和right重合的位置和基准交换，返回基准的位置
+        //第一轮完成，让left和right重合的位置和基准交换，返回基准的位置（在中间的某个位置）
         swap(arr, startIndex, left);
         return left;
     }

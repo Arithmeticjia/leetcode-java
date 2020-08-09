@@ -10,9 +10,9 @@ public class Main{
 
     public static int getResult(String input){
         Map<Character,Integer> map = new HashMap<>();
-        for(int i=0;i<input.length();i++){
+        for(int i = 0;i < input.length();i++){
             char c = input.charAt(i);
-            if(0<c &&c<127){
+            if(0 < c &&c < 127){
                 map.put(c, map.getOrDefault(c,0)+1);
             }
         }

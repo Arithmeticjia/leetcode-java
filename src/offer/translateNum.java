@@ -19,7 +19,6 @@ public class translateNum {
         dp[1] = 1;
         for(int i = 2;i <= s.length();i++){
             String temp = s.substring(i-2,i);
-            System.out.println(temp);
             dp[i] = temp.compareTo("10") >= 0 && temp.compareTo("25") <= 0 ? dp[i-1] + dp[i-2] : dp[i-1];
         }
         return dp[s.length()];

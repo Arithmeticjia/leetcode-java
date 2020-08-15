@@ -2,9 +2,11 @@ package singleinstance;
 
 public class SingleObject {
 
-    //创建 SingleObject 的一个对象
-    //饿汉模式
-    //先new一个对象出来
+    /**
+     * 创建 SingleObject 的一个对象
+     * 饿汉模式
+     * 先new一个对象出来
+     */
     private static SingleObject instance = new SingleObject();
 
     /**

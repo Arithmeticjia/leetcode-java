@@ -5,6 +5,7 @@ public class Main{
     public static void main(String[] agrs){
         Scanner in = new Scanner(System.in);
         String input = in.nextLine();
+        int k = in.nextInt();
         System.out.println(getResult(input));
     }
 

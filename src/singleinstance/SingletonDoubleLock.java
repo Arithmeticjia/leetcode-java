@@ -11,7 +11,9 @@ package singleinstance;
  */
 public class SingletonDoubleLock {
 
-    // 私有构造函数
+    /**
+     * 私有构造函数
+     */
     private SingletonDoubleLock(){};
 
     // 不需要先实例化

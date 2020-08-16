@@ -3,6 +3,12 @@ package NowcodeHuaWei;
 
 import java.util.Scanner;
 
+/**
+ * 举个栗子：
+ * str1="123ABCD456"  str2 = "ABE12345D"
+ * 最长公共子串是：123
+ * 最长公共子序列是：12345
+ */
 public class maxCommonString{
     public static void main(String[] args) {
         // TODO Auto-generated method stub

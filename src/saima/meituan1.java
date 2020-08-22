@@ -37,10 +37,6 @@ public class meituan1 {
                 numCount++;
             }
         }
-        if(numCount <= 0 || charCount <= 0){
-            return false;
-        }else {
-            return true;
-        }
+        return numCount > 0 && charCount > 0;
     }
 }

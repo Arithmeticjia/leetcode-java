@@ -22,7 +22,8 @@ public class playchess {
                         for (int count = 0, x = i + dir[k][0], y = j + dir[k][1], l = 2;
                              x >= 0 && x < n && y >= 0 && y < m;
                              x = i + dir[k][0] * l, y = j + dir[k][1] * l, l++){
-                            // l=2时，x=i/i+1/i-1 y=0/j+1/j-1  count 记录board[x][y] 与 board[i][j]中间棋子个数
+                            // l=2时，x=i/i+1/i-1 y=0/j+1/j-1
+                            // count 记录board[x][y] 与 board[i][j]中间棋子个数
                             if (((board[x][y] == 'B' || board[x][y] == 'J') && l == 2) ||
                                     (board[x][y] == 'P' && count == 1) ||
                                     (board[x][y] == 'C' && count == 0)){

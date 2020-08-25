@@ -19,7 +19,7 @@ public class removeNthFromEnd {
             slow = slow.next;
             fast = fast.next;
         }
-
+        //pre就是待删除的前一个节点
         if(pre != null) {
             pre.next = slow.next;
         } else {

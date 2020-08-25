@@ -23,6 +23,8 @@ public class LRU {
             int opt = operator[0], key = operator[1];
             //set
             if (opt == 1) {
+                //先删了
+                //按照数据的新旧程度来排列，旧的在左边，新的在右边
                 if (map.containsKey(key)) {
                     map.remove(key);
                 } else {
@@ -30,11 +32,14 @@ public class LRU {
                         map.remove(map.keySet().toArray()[0]);
                     }
                 }
+                //放在最右边
                 map.put(key, operator[2]);
             //get
             } else if (opt == 2) {
                 if (map.containsKey(key)) {
+                    //先删了
                     int val = map.remove(key);
+                    //再放最左边
                     map.put(key, val);
                     list.add(map.get(key));
                 } else {

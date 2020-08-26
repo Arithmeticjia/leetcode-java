@@ -19,6 +19,7 @@ public class bubbleSort {
     public static void bubbleSort(int[] nums){
 
         int temp;
+        //比较次数
         for(int i = 0;i < nums.length;i++){
             // 设置标记位，如果没发生交换，可以直接退出程序
             boolean flag = false;

@@ -30,8 +30,8 @@ public class countStr{
         //按数量从大到小添加到可变字符序列sb
         while(max != 0)
         {
-            for(int i=0;i<chArray.length;i++) {
-                if(chArray[i]==max) {
+            for(int i = 0;i < chArray.length;i++) {
+                if(chArray[i] == max) {
                     sb.append((char)i);
                 }
             }

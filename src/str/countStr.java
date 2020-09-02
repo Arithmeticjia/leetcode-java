@@ -13,8 +13,8 @@ public class countStr{
     }
     public static String count(String str)
     {
-        char[] strArray=str.toCharArray();
-        int[] chArray=new int[129];
+        char[] strArray = str.toCharArray();
+        int[] chArray = new int[129];
         //字符对应ascll码值下标元素自增来统计数量
         for(char i:strArray) {
             chArray[(int)i]++;

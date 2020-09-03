@@ -3,9 +3,10 @@ package NowcodeHuaWei;
 import java.util.*;
 
 /**
- * 卡车K
- * 给定一个数组W
- * 给定一个数组V
+ * 卡车K（总容量）
+ * 有N个箱子
+ * 给定一个数组W，每个箱子的容量为w[i]
+ * 给定一个数组V，每个箱子价值为v[i]
  */
 public class huawei3 {
     public static void main(String[] args){

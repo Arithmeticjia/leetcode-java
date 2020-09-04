@@ -14,7 +14,6 @@ public class binaryTreePaths {
 
     public List<String> binaryTreePaths(TreeNode root){
 
-//        LinkedList<String> paths = new LinkedList();
         ArrayList<String> paths = new ArrayList<>();
         construct_paths(root, "", paths);
         return paths;

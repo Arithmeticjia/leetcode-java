@@ -15,7 +15,7 @@ public class findUnsortedSubarray {
         int left = 0;
         int right = length - 1;
         int max = nums[0];
-        int min = nums[length-1];
+        int min = nums[length - 1];
         for(int i = 0; i < length;i++){
             if (nums[i] < max) {
                 left = i;

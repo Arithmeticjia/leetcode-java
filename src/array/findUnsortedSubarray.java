@@ -22,10 +22,16 @@ public class findUnsortedSubarray {
             }else {
                 max = nums[i];
             }
-            if(nums[length - i - 1] > min){
-                right = length -i - 1;
+        }
+        //遍历完发现是递增数组，直接返回
+        if(left == 0) {
+            return 0;
+        }
+        for(int i = length -1; i >= 0;i--){
+            if(nums[i] > min){
+                right = i;
             }else {
-                min = nums[length - i - 1];
+                min = nums[i];
             }
         }
         //left移到了所选子数组的最后一个元素，right移到了子数组第一个元素

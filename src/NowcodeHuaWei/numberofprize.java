@@ -1,5 +1,9 @@
 package NowcodeHuaWei;
 
+/**
+ * 三个不同的道具换一个奖品
+ * 两个不同的可以换一个道具
+ */
 public class numberofprize {
 
     public boolean check(int[] arr, int num){

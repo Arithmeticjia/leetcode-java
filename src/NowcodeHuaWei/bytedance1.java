@@ -9,7 +9,7 @@ import java.util.Scanner;
  * 3、输入：楼梯的层数
  * 4、输出：总共有多少种走法
  */
-public class bytedance3 {
+public class bytedance1{
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);

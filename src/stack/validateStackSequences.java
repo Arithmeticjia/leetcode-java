@@ -18,7 +18,10 @@ public class validateStackSequences {
         Stack<Integer> stack = new Stack<>();
         int i = 0;
         for(int num: pushed){
+            //入栈
             stack.push(num);
+            //如果栈顶不等于出站顺序，就一直入栈
+            //否则，出栈
             while(!stack.isEmpty() && stack.peek() == popped[i]){
                 stack.pop();
                 i++;

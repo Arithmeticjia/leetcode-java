@@ -2,6 +2,15 @@ package NowcodeHuaWei;
 
 import java.util.Arrays;
 
+/**
+ * 输入矩阵的行和列，接下来输入字符矩阵，H代表陆地，S代表水池，被H或者边界包围的S算成有一个水池，让你计算有多少个水池
+ * DFS
+ * 我们可以将二维网格看成一个无向图，竖直或水平相邻的 11 之间有边相连。
+ * 为了求出岛屿的数量，我们可以扫描整个二维网格。如果一个位置为 11，则以其为起始节点开始进行深度优先搜索。在深度优先搜索的过程中，每个搜索到的 11 都会被重新标记为 00。
+ *
+ * 最终岛屿的数量就是我们进行深度优先搜索的次数。
+ *
+ */
 public class huawei2 {
 
     public static void main(String[] args) {
@@ -11,54 +20,34 @@ public class huawei2 {
                 {'H','H','S','H','H'},
                 {'H','H','H','S','S'},
         };
+        //输出3
+        System.out.print(new huawei2().huawei2(b));
+    }
+
+    public int huawei2(char[][] grid) {
         int count = 0;
-        System.out.print(Arrays.deepToString(b));
-        for(int i = 0; i < 4;i++){
-            for(int j = 0; j < 5;j++){
-                if(b[i][j] == 'S'){
+        for(int i = 0;i < grid.length;i++){
+            for (int j = 0; j < grid[0].length; j++){
+                if(grid[i][j] == 'S'){
                     count++;
+                    dfs(grid, i, j);
                 }
             }
         }
-        System.out.print(count);
+        return count;
     }
 
-    int n, m;
-
-    public void solve(char[][] board) {
-        n = board.length;
-        if (n == 0) {
+    public static void dfs(char[][] grid,int i,int j){
+        //遇见岛屿就返回
+        if(i < 0 || i >= grid.length || j < 0 || j >= grid[0].length || grid[i][j] == 'H'){
             return;
+        }else{
+            grid[i][j] = 'H';
         }
-        m = board[0].length;
-        for (int i = 0; i < n; i++) {
-            dfs(board, i, 0);
-            dfs(board, i, m - 1);
-        }
-        for (int i = 1; i < m - 1; i++) {
-            dfs(board, 0, i);
-            dfs(board, n - 1, i);
-        }
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                if (board[i][j] == 'A') {
-                    board[i][j] = 'S';
-                } else if (board[i][j] == 'S') {
-                    board[i][j] = 'H';
-                }
-            }
-        }
-    }
-
-    public void dfs(char[][] board, int x, int y) {
-        if (x < 0 || x >= n || y < 0 || y >= m || board[x][y] != 'S') {
-            return;
-        }
-        board[x][y] = 'A';
-        dfs(board, x + 1, y);
-        dfs(board, x - 1, y);
-        dfs(board, x, y + 1);
-        dfs(board, x, y - 1);
+        dfs(grid, i, j+1);
+        dfs(grid, i-1, j);
+        dfs(grid, i+1, j);
+        dfs(grid, i, j-1);
     }
 }
 

@@ -44,6 +44,7 @@ public class huawei2 {
         }else{
             grid[i][j] = 'H';
         }
+        //当前是水池，就开始上下左右深搜
         dfs(grid, i, j+1);
         dfs(grid, i-1, j);
         dfs(grid, i+1, j);

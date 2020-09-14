@@ -39,6 +39,7 @@ public class huawei2 {
 
     public static void dfs(char[][] grid,int i,int j){
         //遇见岛屿就返回
+        //超过边界也不行，在边界上可以
         if(i < 0 || i >= grid.length || j < 0 || j >= grid[0].length || grid[i][j] == 'H'){
             return;
         }else{

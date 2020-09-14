@@ -6,6 +6,12 @@ package dp;
  */
 public class minInsertions {
 
+    public static void main(String[] args) {
+        int i = 5;
+        int j = 10;
+        System.out.println(i + ~j);
+    }
+
     public int minInsertions(String s) {
         int[][] dp = buildDP(s.toCharArray());
         return dp[0][s.length() - 1];

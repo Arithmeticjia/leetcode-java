@@ -29,43 +29,87 @@ import java.util.Scanner;
 public class huawei1 {
 
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int m = sc.nextInt();
-        float[][] dp = new float[n][m];
-        float[][][] arr = new float[n][m][3];
-        for(int i = 0; i < n;i++){
-            for(int j = 0; j < m;j++){
-                arr[i][j][0] = sc.nextFloat();
-                arr[i][j][1] = sc.nextFloat();
-                arr[i][j][2] = sc.nextFloat();
-                arr[i][j][0] /= (1-arr[i][j][2]);
-                arr[i][j][1] /= (1-arr[i][j][2]);
+        while (sc.hasNext()) {
+            int n = sc.nextInt();
+            int[] num = new int[n];
+            int[] type = new int[n];
+            int cnt = 0;
+            for (int i = 0; i < n; i++) {
+                num[i] = sc.nextInt();
+                type[i] = sc.nextInt();
+                if (type[i] == 1) {
+                    cnt++;
+                }
+            }
+            //四个数组可以用两个treemap代替
+            int[] n1 = new int[cnt];
+            int[] t1 = new int[cnt];
+            int[] n2 = new int[n - cnt];
+            int[] t2 = new int[n - cnt];
+            int top1 = 0, top2 = 0, t11 = 0, t22 = 0;
+            for (int i = 0; i < n; i++) {
+                if (type[i] == 1) {
+                    n1[top1++] = num[i];
+                    t1[t11++] = i + 1;//注意这里是从第1行开始的
+                } else if (type[i] == 2) {
+                    n2[top2++] = num[i];
+                    t2[t22++] = i + 1;
+                }
+            }
+            if (cnt < 3 && n - cnt < 3) {//没满足情况
+                System.out.println("null");
+                continue;
+            }
+            if (cnt < 3) {
+                helper(n2, t2);
+                System.out.println(t2[t2.length - 3] + " " + t2[t2.length - 2] + " " + t2[t2.length - 1]);
+                System.out.println(2);
+                System.out.println(n2[n2.length - 1] + n2[n2.length - 2] + n2[n2.length - 3]);
+
+            } else if (n - cnt < 3) {
+                helper(n1, t1);
+                System.out.println(t1[t1.length - 3] + " " + t1[t1.length - 2] + " " + t1[t1.length - 1]);
+                System.out.println(1);
+                System.out.println(n1[n1.length - 1] + n1[n1.length - 2] + n1[n1.length - 3]);
+            } else {//两个种类礼物的人都>=3
+                helper(n2, t2);
+                helper(n1, t1);
+                if (n2[n2.length - 1] + n2[n2.length - 2] + n2[n2.length - 3] > n1[n1.length - 1] + n1[n1.length - 2] + n1[n1.length - 3]) {//比较总量谁大
+                    System.out.println(t2[t2.length - 3] + " " + t2[t2.length - 2] + " " + t2[t2.length - 1]);
+                    System.out.println(2);
+                    System.out.println(n2[n2.length - 1] + n2[n2.length - 2] + n2[n2.length - 3]);
+                } else if (n2[n2.length - 1] + n2[n2.length - 2] + n2[n2.length - 3] < n1[n1.length - 1] + n1[n1.length - 2] + n1[n1.length - 3]) {
+                    System.out.println(t1[t1.length - 3] + " " + t1[t1.length - 2] + " " + t1[t1.length - 1]);
+                    System.out.println(1);
+                    System.out.println(n1[n1.length - 1] + n1[n1.length - 2] + n1[n1.length - 3]);
+                } else {
+                    if (t2[t2.length - 3] > t1[t1.length - 3]) {//总量相等比较序号
+                        System.out.println(t1[t1.length - 3] + " " + t1[t1.length - 2] + " " + t1[t1.length - 1]);
+                        System.out.println(1);
+                        System.out.println(n1[n1.length - 1] + n1[n1.length - 2] + n1[n1.length - 3]);
+                    } else {
+                        System.out.println(t2[t2.length - 3] + " " + t2[t2.length - 2] + " " + t2[t2.length - 1]);
+                        System.out.println(2);
+                        System.out.println(n2[n2.length - 1] + n2[n2.length - 2] + n2[n2.length - 3]);
+                    }
+                }
+
             }
         }
-
-        dp[0][0] = 1;
-        for(int i = 1; i < n;i++){
-            //右初始化
-            dp[0][i] = dp[0][i-1]*arr[0][i-1][0]*i;
-        }
-
-        for(int i = 1; i < m;i++){
-            //下初始化
-            dp[i][0] = dp[i-1][0]*arr[i-1][0][1]*i;
-        }
-
-
-        for(int i = 1; i < n;i++){
-            for(int j = 1;j < m;j++){
-                //朝下+朝右
-                dp[i][j] = dp[i-1][j]*arr[i-1][j][0] + dp[i][j-1]*arr[i][j-1][1];
-                dp[i][j] *= (i+j);
+    }
+    public static void helper(int[] n,int[]t){//此过程完全可以用treemap自动完成
+        for(int i=0;i<n.length;i++){
+            for (int j = 0; j <n.length-i-1 ; j++) {
+                if(n[j]>n[j+1]){
+                    int t1 = n[j];
+                    n[j] = n[j+1];
+                    n[j+1]=t1;
+                    int x = t[j];
+                    t[j] = t[j+1];
+                    t[j+1] = x;
+                }
             }
         }
-
-        System.out.println(dp[n-1][m-1]+1);
-
     }
 }

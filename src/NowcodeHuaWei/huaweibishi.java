@@ -19,7 +19,7 @@ public class huaweibishi {
 
         ArrayList<Integer> arrayList = new ArrayList<>();
 
-        for(int i = speed.length-1;i >= 0;i--) {
+        for(int i = speed.length - 1; i >= 0; i--) {
 
             if(arrayList.isEmpty()){
                 arrayList.add(i);
@@ -32,8 +32,8 @@ public class huaweibishi {
 
         int[] res = new int[arrayList.size()];
 
-        for(int i = 0; i < res.length;i++) {
-            res[i] = arrayList.get(arrayList.size()-1-i);
+        for(int i = 0; i < res.length; i++) {
+            res[i] = arrayList.get(arrayList.size() -1 -i);
         }
 
         return res;

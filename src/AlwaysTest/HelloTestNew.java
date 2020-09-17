@@ -3,7 +3,7 @@ package AlwaysTest;
 import threads.OverrideRunnable;
 
 /**
- * 可重入锁
+ * 可重入锁 synchronized
  */
 public class HelloTestNew implements Runnable{
 

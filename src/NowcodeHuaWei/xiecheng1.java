@@ -1,7 +1,11 @@
+package NowcodeHuaWei;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class xiecheng1 {
 
@@ -11,5 +15,6 @@ public class xiecheng1 {
         String full = sc.nextLine();
         String newStr = sc.nextLine();
         System.out.println(full.replaceAll(old,newStr));
+        Lock lock = new ReentrantLock();
     }
 }

@@ -1,4 +1,4 @@
-package staticproxy;
+package proxy.staticproxy;
 
 public class AccountProxy implements IAccountService{
 
@@ -15,6 +15,6 @@ public class AccountProxy implements IAccountService{
     }
 
     private void before() {
-        System.out.println("对转账人身份进行验证。");
+        System.out.println("对转账人身份进行验证.");
     }
 }

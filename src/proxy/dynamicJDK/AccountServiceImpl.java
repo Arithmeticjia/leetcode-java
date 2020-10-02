@@ -1,4 +1,4 @@
-package proxy.dynamicproxy;
+package proxy.dynamicJDK;
 
 public class AccountServiceImpl implements IAccountService{
     @Override

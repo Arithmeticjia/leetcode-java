@@ -1,4 +1,4 @@
-package proxy.dynamicproxy;
+package proxy.dynamicJDK;
 
 public interface IAccountService {
     void transfer();

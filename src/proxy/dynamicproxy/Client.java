@@ -2,6 +2,10 @@ package proxy.dynamicproxy;
 
 import java.lang.reflect.Proxy;
 
+/**
+ * JDK代理
+ * JDK动态代理必须要有接口
+ */
 public class Client {
 
     public static void main(String[] args) {

@@ -15,6 +15,8 @@ public class InnerTest {
      */
     class Inner1{
 
+        private int a = 10;
+
         void test(){
             //外围类属性
             System.out.println(a);
@@ -35,6 +37,12 @@ public class InnerTest {
      */
     static class Inner2 {
 
+        int a = 10;
+
+        static int b = 20;
+
+        static private int c = 30;
+
         void test(){
             //外围类属性
             //System.out.println(a);
@@ -45,6 +53,16 @@ public class InnerTest {
             //外围类静态私有属性
             System.out.println(sstr);
         }
+
+    }
+
+    public static void main(String[] args) {
+
+        InnerTest innerTest = new InnerTest();
+        System.out.println(innerTest.new Inner1().a);
+        System.out.println(Inner2.b);
+        System.out.println(Inner2.c);
+        System.out.println(new Inner2().a);
 
     }
 }

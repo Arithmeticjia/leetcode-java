@@ -1,6 +1,9 @@
 package atomic;
 
+import sun.misc.Unsafe;
+
 import java.util.concurrent.atomic.AtomicInteger;
+
 
 public class AtomicIntegerTest {
 

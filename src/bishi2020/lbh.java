@@ -15,7 +15,7 @@ public class lbh {
         }};
 
         for(String username:userName) {
-            if(username.equals("ford")) {
+            if("ford".equals(username)) {
                 userName.remove("ford");
             }
         }

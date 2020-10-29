@@ -19,28 +19,28 @@ public class doudizhu {
         int cnt = 0;
         for(int i = 0;i < s.length();i++){
             char c=s.charAt(i);
-            dp[cnt++] = c-'0';
+            dp[cnt++] = c - '0';
         }
         //dp[cnt]=0;
         for(int i = 1;i < cnt; i++, cur_r++){
-            if(dp[i] == (dp[i-1]+1)){
+            if(dp[i] == (dp[i-1] +1 )){
                 cur_len++;
             }else{
                 //System.out.println("cur_len:"+cur_len+" max_len="+max_len);
                 if(cur_len>=max_len){
-                    max_l=cur_l;
-                    max_len=cur_len;
-                    max_r=cur_r;
+                    max_l = cur_l;
+                    max_len = cur_len;
+                    max_r = cur_r;
                     //System.out.println("cur_l="+cur_l+"   cur_r="+cur_r);
                 }
-                cur_l=cur_r;
-                cur_len=1;
+                cur_l = cur_r;
+                cur_len = 1;
             }
         }
-        if(cur_len>=max_len){//判断最后一次，最长的序列在最后情况
-            max_l=cur_l;
-            max_len=cur_len;
-            max_r=cur_r;
+        if(cur_len >= max_len){//判断最后一次，最长的序列在最后情况
+            max_l = cur_l;
+            max_len = cur_len;
+            max_r = cur_r;
             //System.out.println("cur_l="+cur_l+"   cur_r="+cur_r);
         }
 //        System.out.println("lastcur_l="+cur_l+"   cur_r="+cur_r);
@@ -57,8 +57,8 @@ public class doudizhu {
     public static void main(String args[]) {
         Scanner cin=new Scanner(System.in);
         while(cin.hasNext()){
-            String s=cin.nextLine();
-            String res=doudizhu(s);
+            String s = cin.nextLine();
+            String res = doudizhu(s);
             System.out.println(res);
         }
     }
